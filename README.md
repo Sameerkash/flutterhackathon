@@ -1,16 +1,11 @@
-# flutterhackathon
+# Hack20
 
-A new Flutter project.
+## 🌌 CyberPunk Dystopian Tool to survive in the post apocalyptic world with 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+- Contributing:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Make a branch in your name and only push to that branch, do not push to master, We'll have only stable code in master
+* Document the widgets and methods you write, especially if it's tricky code.
+* Use the size config file to make a responsive design, safeblockvertival and safeblockhorizontal multiplied by a factor to calculate height anf width of a widget
+* Try to make is as flashy as possible with animations 
