@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterhackathon/UI/shop/shop.dart';
 import 'package:flutterhackathon/widgets/customs/custom_rect.dart';
 import 'package:flutterhackathon/widgets/primary_button.dart';
+
+import '../jobs/jobs.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -65,7 +68,12 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.work,
                                   color: Colors.green,
                                   buttonText: "JOBS",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => JobsPage()),
+                                            (Route<dynamic> route) => false);
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -75,7 +83,12 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.add_shopping_cart,
                                   color: Colors.green,
                                   buttonText: "SHOP",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => ShopPage()),
+                                            (Route<dynamic> route) => false);
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
