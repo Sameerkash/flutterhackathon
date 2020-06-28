@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterhackathon/widgets/customs/custom_rect.dart';
-import 'package:flutterhackathon/widgets/primary_screen.dart';
+import 'package:flutterhackathon/widgets/primary_button.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -14,7 +14,7 @@ class MainScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           color: Colors.black,
           child: CustomPaint(
-              painter: MyPainter(),
+              painter: MyPainter(false),
               child: Container(
                   padding: EdgeInsets.all(20),
                   child: Column(
