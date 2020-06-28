@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutterhackathon/RESOURCES/VALUES/app_color.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../UI/main_screen/main_scree.dart';
 
 class CustomAppBar extends StatelessWidget {
+  final String title;
+
+  CustomAppBar({@required this.title});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,7 +41,7 @@ class CustomAppBar extends StatelessWidget {
               ],
             ),
             child: Text(
-              'JOBS',
+              title,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
@@ -53,9 +59,14 @@ class CustomAppBar extends StatelessWidget {
             ),
             child: FlatButton(
               padding: EdgeInsets.all(0),
-              onPressed: () {},
-              child: Image.asset(
-                "assets/images/menu.png",
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainScreen()),
+                        (Route<dynamic> route) => false);
+              },
+              child: SvgPicture.asset(
+                "assets/images/menu.svg",
                 width: 24,
                 height: 24,
                 color: AppColors.TiffanyBlue,

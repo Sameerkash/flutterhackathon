@@ -24,6 +24,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_tindercard:
+  flutter_svg:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

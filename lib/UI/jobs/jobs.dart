@@ -83,7 +83,9 @@ class _JobsPageState extends State<JobsPage> with TickerProviderStateMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CustomAppBar(),
+            CustomAppBar(
+              title: 'JOBS',
+            ),
             Center(
               child: Container(
                 decoration: BoxDecoration(
@@ -118,6 +120,7 @@ class _JobsPageState extends State<JobsPage> with TickerProviderStateMixin {
                             width: 280,
                             fit: BoxFit.cover,
                           ),
+                          color: AppColors.Black,
                         ),
                         Positioned(
                           left: 6,
