@@ -3,8 +3,9 @@ import 'package:flutterhackathon/RESOURCES/VALUES/app_color.dart';
 
 class CustomOutlineButton extends StatelessWidget {
   final String buttonText;
+  final Function onPressed;
 
-  CustomOutlineButton.CustomFlatButton({@required this.buttonText});
+  CustomOutlineButton.CustomFlatButton({@required this.buttonText, @required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class CustomOutlineButton extends StatelessWidget {
       width: 90,
       height: 40,
       child: FlatButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           buttonText,
           textAlign: TextAlign.center,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
+import 'package:flutterhackathon/MODEL/job.dart';
+import 'package:flutterhackathon/MODEL/person.dart';
 import 'package:flutterhackathon/RESOURCES/COMPONENTS/app_bar.dart';
 import 'package:flutterhackathon/RESOURCES/COMPONENTS/flat_button.dart';
 import 'package:flutterhackathon/RESOURCES/VALUES/app_color.dart';
@@ -12,19 +14,44 @@ class JobsPage extends StatefulWidget {
 
 class _JobsPageState extends State<JobsPage> with TickerProviderStateMixin {
   Random rnd = new Random();
-  List<String> personImages = [
-    "assets/images/person1.jpg",
-    "assets/images/person2.jpg",
-    "assets/images/person3.jpg",
-    "assets/images/person1.jpg",
-    "assets/images/person2.jpg",
-    "assets/images/person3.jpg",
+
+  List<Person> people = [
+    Person(
+      id: 343,
+      images: 'assets/images/person1.jpg',
+      jobDescription:
+          Job(title: 'Rescue pet from Pet Stuck in tree', score: 100),
+    ),
+    Person(
+      id: 3454,
+      images: 'assets/images/person2.jpg',
+      jobDescription: Job(title: 'Fix my Cyber Truck Mark III', score: 200),
+    ),
+    Person(
+      id: 5654,
+      images: 'assets/images/person3.jpg',
+      jobDescription:
+          Job(title: 'Rescue pet from Pet Stuck in tree', score: 400),
+    ),
+    Person(
+      id: 1234,
+      images: 'assets/images/person1.jpg',
+      jobDescription: Job(title: 'Fix my Cyber Truck Mark III', score: 500),
+    ),
   ];
 
   _addPeople() {
     int count = rnd.nextInt(100) + 45;
-    for (int i = 0; i < count; i++)
-      personImages.add('assets/images/person${rnd.nextInt(3) + 1}.jpg');
+    for (int i = 0; i < count; i++) {
+      people.add(
+        Person(
+            id: rnd.nextInt(356000) + 2,
+            images: 'assets/images/person${rnd.nextInt(3) + 1}.jpg',
+            jobDescription: Job(
+                title: 'Fix my Cyber Truck Mark III',
+                score: rnd.nextInt(1000) + 10)),
+      );
+    }
   }
 
   @override
@@ -74,19 +101,67 @@ class _JobsPageState extends State<JobsPage> with TickerProviderStateMixin {
                 child: new TinderSwapCard(
                   animDuration: 300,
                   orientation: AmassOrientation.BOTTOM,
-                  totalNum: personImages.length,
+                  totalNum: people.length,
                   stackNum: 3,
                   swipeEdge: 3.0,
-                  maxWidth: MediaQuery.of(context).size.width * 1.0,
-                  maxHeight: MediaQuery.of(context).size.width * 1.7,
-                  minWidth: MediaQuery.of(context).size.width * 0.18,
-                  minHeight: MediaQuery.of(context).size.width * 0.4,
+                  maxWidth: MediaQuery.of(context).size.width * 0.8,
+                  maxHeight: MediaQuery.of(context).size.width * 2.99,
+                  minWidth: MediaQuery.of(context).size.width * 0.458,
+                  minHeight: MediaQuery.of(context).size.width * 0.764,
                   cardBuilder: (context, index) => Card(
-                    child: Container(
-                      child: Image.asset(
-                        '${personImages[index]}',
-                        fit: BoxFit.cover,
-                      ),
+                    child: Stack(
+                      children: [
+                        Container(
+                          child: Image.asset(
+                            '${people[index].images}',
+                            height: MediaQuery.of(context).size.height * 0.63,
+                            width: 280,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          left: 6,
+                          bottom: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 132,
+                                height: 19,
+                                child: Text(
+                                  'Citizen ID:${people[index].id}',
+                                  style: TextStyle(
+                                    color: AppColors.TiffanyBlue,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 234,
+                                height: 19,
+                                child: Text(
+                                  '${people[index].jobDescription.title}',
+                                  style: TextStyle(
+                                    color: AppColors.TiffanyBlue,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 180,
+                                height: 19,
+                                child: Text(
+                                  'Score: ${people[index].jobDescription.score} citizen credit(CC)',
+                                  style: TextStyle(
+                                    color: AppColors.TiffanyBlue,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   cardController: controller = CardController(),
@@ -117,6 +192,9 @@ class _JobsPageState extends State<JobsPage> with TickerProviderStateMixin {
                     ),
                     child: CustomOutlineButton.CustomFlatButton(
                       buttonText: "Accept",
+                      onPressed: () {
+                        controller.triggerLeft();
+                      },
                     ),
                   ),
                   SizedBox(
@@ -124,6 +202,9 @@ class _JobsPageState extends State<JobsPage> with TickerProviderStateMixin {
                   ),
                   CustomOutlineButton.CustomFlatButton(
                     buttonText: "Reject",
+                    onPressed: () {
+                      controller.triggerRight();
+                    },
                   ),
                 ],
               ),
