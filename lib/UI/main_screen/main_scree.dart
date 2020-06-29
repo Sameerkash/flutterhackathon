@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutterhackathon/UI/ar_scan/scanner_screen.dart';
+import 'package:flutterhackathon/UI/jobs/jobs_hire_history.dart';
+import 'package:flutterhackathon/UI/profile/profile_section.dart';
+import 'package:flutterhackathon/UI/shop/shop.dart';
 import 'package:flutterhackathon/widgets/customs/custom_rect.dart';
 import 'package:flutterhackathon/widgets/primary_button.dart';
+import 'package:page_transition/page_transition.dart';
+
+import '../jobs/jobs.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -65,7 +72,13 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.work,
                                   color: Colors.green,
                                   buttonText: "JOBS",
-                                  onPressed: () {}),
+                                  onPressed: () {
+//                                    Navigator.pushAndRemoveUntil(
+//                                        context,
+//                                        MaterialPageRoute(builder: (context) => JobsPage()),
+//                                            (Route<dynamic> route) => false);
+                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: JobsPage()));
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -75,7 +88,9 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.add_shopping_cart,
                                   color: Colors.green,
                                   buttonText: "SHOP",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: ShopPage()));
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -85,7 +100,9 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.person_add,
                                   color: Colors.green,
                                   buttonText: "HIRE",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: HireHistoryPage()));
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -105,7 +122,9 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.scanner,
                                   color: Colors.green,
                                   buttonText: "SCAN",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: CameraScreen()));
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -115,7 +134,9 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.account_circle,
                                   color: Colors.green,
                                   buttonText: "PROFILE",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                     Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: ProfileSection()));
+                                  }),
                             ),
                           ],
                           crossAxisCount: 2)
