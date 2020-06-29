@@ -5,22 +5,54 @@ import 'package:flutterhackathon/UTIL/size_util.dart';
 import '../../UTIL/size_util.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutterhackathon/widgets/customs/custom_rect.dart';
+import 'package:flutterhackathon/RESOURCES/VALUES/app_color.dart';
 
 class ProfileSection extends StatefulWidget {
   @override
   _ProfileSectionState createState() => _ProfileSectionState();
 }
 
-class _ProfileSectionState extends State<ProfileSection> {
+class _ProfileSectionState extends State<ProfileSection>
+    with TickerProviderStateMixin<ProfileSection> {
+  double _scale;
+  AnimationController _controller;
+
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 100),
+      lowerBound: 0.0,
+      upperBound: 0.1,
+    )..addListener(() {
+        setState(() {});
+      });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final borderRadius = 10.0;
+    _scale = 1 - _controller.value;
+
     SizeConfig().init(context);
 
     return SafeArea(
       child: Scaffold(
         backgroundColor: kPrimaryColor,
         body: Container(
-          padding: EdgeInsets.only(top: SizeConfig.safeHeight * 0.02),
+          margin: EdgeInsets.all(26),
+          decoration: BoxDecoration(
+            color: AppColors.Black,
+            border: Border.all(
+              color: AppColors.DarkBlue,
+              style: BorderStyle.solid,
+              width: 3,
+            ),
+            boxShadow: [
+              BoxShadow(
+                  color: AppColors.Pink, offset: Offset(1, 2), blurRadius: 5.0),
+            ],
+          ),
           child: ListView(
             scrollDirection: Axis.vertical,
             children: <Widget>[
@@ -106,10 +138,22 @@ class _ProfileSectionState extends State<ProfileSection> {
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    child: ImageIcon(
-                      AssetImage('assets/images/menu.png'),
-                      size: SizeConfig.safeWidth * 0.1,
-                      color: Colors.lightBlueAccent,
+                    child: GestureDetector(
+                      onTap: () {
+                        _controller.forward().then((val) {
+                          _controller.reverse().then((val) {
+                            Navigator.pop(context);
+                          });
+                        });
+                      },
+                      child: Transform.scale(
+                        scale: _scale,
+                        child: ImageIcon(
+                          AssetImage('assets/images/menu.png'),
+                          size: SizeConfig.safeWidth * 0.1,
+                          color: Colors.lightBlueAccent,
+                        ),
+                      ),
                     ),
                   ),
                 ],

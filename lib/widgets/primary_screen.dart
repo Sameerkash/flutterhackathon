@@ -58,6 +58,7 @@ class _PrimaryButtonState extends State<PrimaryButton>
           width: widget.width,
           decoration: BoxDecoration(
             border: Border.all(width: 3, color: Color.fromRGBO(197, 1, 80, 1)),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
             boxShadow: [
               BoxShadow(
                 color: Color.fromRGBO(28, 28, 137, 1).withOpacity(0.7),
@@ -67,7 +68,6 @@ class _PrimaryButtonState extends State<PrimaryButton>
               ),
             ],
             color: Colors.black,
-            borderRadius: BorderRadius.circular(borderRadius),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -53,7 +53,9 @@ class CustomAppBar extends StatelessWidget {
             ),
             child: FlatButton(
               padding: EdgeInsets.all(0),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               child: Image.asset(
                 "assets/images/menu.png",
                 width: 24,

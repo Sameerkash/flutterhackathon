@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterhackathon/UI/jobs/jobs.dart';
+import 'package:flutterhackathon/UI/profile/profile_section.dart';
 import 'package:flutterhackathon/widgets/customs/custom_rect.dart';
 import 'package:flutterhackathon/widgets/primary_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -65,7 +68,34 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.work,
                                   color: Colors.green,
                                   buttonText: "JOBS",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        PageRouteBuilder(
+                                            transitionDuration:
+                                                Duration(milliseconds: 500),
+                                            transitionsBuilder: (BuildContext
+                                                    context,
+                                                Animation<double> animation,
+                                                Animation<double> secAnimation,
+                                                Widget child) {
+                                              animation = CurvedAnimation(
+                                                  parent: animation,
+                                                  curve: Curves.easeOutCubic);
+
+                                              return ScaleTransition(
+                                                scale: animation,
+                                                child: child,
+                                                alignment: Alignment.center,
+                                              );
+                                            },
+                                            pageBuilder: (BuildContext context,
+                                                Animation<double> animation,
+                                                Animation<double>
+                                                    secAnimation) {
+                                              return JobsPage();
+                                            }));
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -115,7 +145,34 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.account_circle,
                                   color: Colors.green,
                                   buttonText: "PROFILE",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        PageRouteBuilder(
+                                            transitionDuration:
+                                                Duration(milliseconds: 500),
+                                            transitionsBuilder: (BuildContext
+                                                    context,
+                                                Animation<double> animation,
+                                                Animation<double> secAnimation,
+                                                Widget child) {
+                                              animation = CurvedAnimation(
+                                                  parent: animation,
+                                                  curve: Curves.easeOutCubic);
+
+                                              return ScaleTransition(
+                                                scale: animation,
+                                                child: child,
+                                                alignment: Alignment.center,
+                                              );
+                                            },
+                                            pageBuilder: (BuildContext context,
+                                                Animation<double> animation,
+                                                Animation<double>
+                                                    secAnimation) {
+                                              return ProfileSection();
+                                            }));
+                                  }),
                             ),
                           ],
                           crossAxisCount: 2)
