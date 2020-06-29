@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterhackathon/RESOURCES/VALUES/app_color.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../UI/main_screen/main_scree.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String title;
@@ -60,10 +59,7 @@ class CustomAppBar extends StatelessWidget {
             child: FlatButton(
               padding: EdgeInsets.all(0),
               onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => MainScreen()),
-                        (Route<dynamic> route) => false);
+                Navigator.pop(context);
               },
               child: SvgPicture.asset(
                 "assets/images/menu.svg",

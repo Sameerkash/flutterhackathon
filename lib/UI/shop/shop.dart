@@ -29,9 +29,7 @@ class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
     ScrollController controller;
-    return MaterialApp(
-      title: 'Vertical List Demo',
-      home: Scaffold(
+    return  Scaffold(
         backgroundColor: Colors.black,
         body: Container(
           margin: EdgeInsets.all(26),
@@ -103,7 +101,6 @@ class _ShopPageState extends State<ShopPage> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

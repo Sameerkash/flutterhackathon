@@ -23,7 +23,21 @@ class _ProfileSectionState extends State<ProfileSection> {
       child: Scaffold(
         backgroundColor: kPrimaryColor,
         body: Container(
-          padding: EdgeInsets.only(top: SizeConfig.safeHeight * 0.02),
+          margin: EdgeInsets.all(26),
+
+          decoration: BoxDecoration(
+            color: AppColors.Black,
+            border: Border.all(
+              color: AppColors.DarkBlue,
+              style: BorderStyle.solid,
+              width: 3,
+            ),
+            boxShadow: [
+              BoxShadow(
+                  color: AppColors.Pink, offset: Offset(1, 2), blurRadius: 5.0),
+            ],
+          ),
+          padding: EdgeInsets.only(top: SizeConfig.safeHeight * 0.07, left: 7, right:  7),
           child: ListView(
             scrollDirection: Axis.vertical,
             children: <Widget>[
@@ -112,10 +126,7 @@ class _ProfileSectionState extends State<ProfileSection> {
                     child: FlatButton(
                       padding: EdgeInsets.all(0),
                       onPressed: () {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(builder: (context) => MainScreen()),
-                                (Route<dynamic> route) => false);
+                        Navigator.pop(context);
                       },
                       child: SvgPicture.asset(
                         "assets/images/menu.svg",
