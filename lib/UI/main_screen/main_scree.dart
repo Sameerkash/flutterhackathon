@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterhackathon/UI/jobs/jobs_hire_history.dart';
+import 'package:flutterhackathon/UI/profile/profile_section.dart';
 import 'package:flutterhackathon/UI/shop/shop.dart';
 import 'package:flutterhackathon/widgets/customs/custom_rect.dart';
 import 'package:flutterhackathon/widgets/primary_button.dart';
@@ -98,7 +100,12 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.person_add,
                                   color: Colors.green,
                                   buttonText: "HIRE",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => HireHistoryPage()),
+                                            (Route<dynamic> route) => false);
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -128,7 +135,12 @@ class MainScreen extends StatelessWidget {
                                   icon: Icons.account_circle,
                                   color: Colors.green,
                                   buttonText: "PROFILE",
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => ProfileSection()),
+                                            (Route<dynamic> route) => false);
+                                  }),
                             ),
                           ],
                           crossAxisCount: 2)
