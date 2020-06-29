@@ -75,12 +75,10 @@ class _MyHomePageState extends State<LoginScreen> {
                                 height: 50,
                                 color: Colors.green,
                                 buttonText: "START",
-                                onPressed: () => Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LoginFaceDetection(),
-                                  ),
-                                ),
+                                onPressed: () => Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => LoginFaceDetection()),
+                                        (Route<dynamic> route) => false),
                               ),
                             ),
                           ),

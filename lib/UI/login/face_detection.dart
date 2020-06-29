@@ -119,8 +119,14 @@ class _LoginFaceDetectionState extends State<LoginFaceDetection>
     if (results.isNotEmpty) {
       log("${results[0]}");
       if (results[0]['label'] == 'person') {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MainScreen()));
+        _animationController.stop();
+        setState(() {
+          _isDetecting = false;
+        });
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => MainScreen()),
+                (Route<dynamic> route) => false);
       }
     }
     _isDetecting = false;
