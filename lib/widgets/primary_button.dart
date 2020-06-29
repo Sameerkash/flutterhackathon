@@ -69,20 +69,27 @@ class _PrimaryButtonState extends State<PrimaryButton>
             color: Colors.black,
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Icon(
-                widget.icon,
-                color: Colors.green[200],
-                size: 60,
-              ),
-              Text(
-                widget.buttonText,
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ],
-          ),
+          child: widget.icon == null
+              ? Center(
+                  child: Text(
+                    widget.buttonText,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                )
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Icon(
+                      widget.icon,
+                      color: Colors.green[200],
+                      size: 60,
+                    ),
+                    Text(
+                      widget.buttonText,
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ],
+                ),
         ),
       ),
     );

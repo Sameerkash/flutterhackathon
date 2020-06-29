@@ -51,6 +51,7 @@ flutter:
     - assets/tflite/ssd_mobilenet.tflite
     - assets/tflite/ssd_mobilenet.txt
     - assets/images/menu.svg
+    - assets/images/login-person-face.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

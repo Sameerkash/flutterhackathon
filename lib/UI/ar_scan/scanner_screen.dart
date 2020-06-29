@@ -108,6 +108,7 @@ class _CameraScreenState extends State<CameraScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      key: _scaffoldKey,
       body: Stack(
         children: <Widget>[
           Stack(
