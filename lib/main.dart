@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterhackathon/UI/main_screen/main_scree.dart';
 
 import 'UI/ar_scan/scanner_screen.dart';
+import 'UI/launch_screen/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,8 +22,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(
-        title: "demo",
+      home: SplashScreen(
       ),
     );
   }
