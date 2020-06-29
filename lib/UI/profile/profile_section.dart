@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:flutterhackathon/RESOURCES/VALUES/app_color.dart';
+import 'package:flutterhackathon/UI/main_screen/main_scree.dart';
 import 'package:flutterhackathon/constants.dart';
 import 'package:flutterhackathon/UTIL/size_util.dart';
 import '../../UTIL/size_util.dart';
@@ -28,7 +31,7 @@ class _ProfileSectionState extends State<ProfileSection> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   CustomPaint(
-                    painter: MyPainter(),
+                    painter: MyPainter(false),
                     child: Container(
                       padding: EdgeInsets.all(SizeConfig.safeWidth * 0.03),
                       decoration: BoxDecoration(
@@ -106,10 +109,20 @@ class _ProfileSectionState extends State<ProfileSection> {
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    child: ImageIcon(
-                      AssetImage('assets/images/menu.png'),
-                      size: SizeConfig.safeWidth * 0.1,
-                      color: Colors.lightBlueAccent,
+                    child: FlatButton(
+                      padding: EdgeInsets.all(0),
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => MainScreen()),
+                                (Route<dynamic> route) => false);
+                      },
+                      child: SvgPicture.asset(
+                        "assets/images/menu.svg",
+                        width: 24,
+                        height: 24,
+                        color: AppColors.TiffanyBlue,
+                      ),
                     ),
                   ),
                 ],
@@ -147,7 +160,7 @@ class _ProfileSectionState extends State<ProfileSection> {
                   ),
                   Card(
                     child: CustomPaint(
-                      painter: MyPainter(),
+                      painter: MyPainter(false),
                       child: Container(
                         padding: EdgeInsets.all(SizeConfig.safeHeight * 0.012),
                         decoration: BoxDecoration(
@@ -272,7 +285,7 @@ class _ProfileSectionState extends State<ProfileSection> {
                       shadowColor: Colors.white10,
                       color: kCardsColor,
                       child: CustomPaint(
-                        painter: MyPainter(),
+                        painter: MyPainter(false),
                         child: Container(
                           padding:
                               EdgeInsets.symmetric(vertical: 5, horizontal: 19),
