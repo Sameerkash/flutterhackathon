@@ -13,6 +13,9 @@
 
 ## Screens
 
+![Image of detection]
 (https://drive.google.com/file/d/1tIV5gjooUUchF_ubROfDCr1A4pnfyxXU/view?usp=sharing)
+![Image of swiping]
 (https://drive.google.com/file/d/16BvOXcyzgnQlxTPo-QOrBVnPBCiXOi8-/view?usp=sharing)
+![Image of shop]
 (https://drive.google.com/file/d/1t-gu36IEjRvZ4b_E7Kwh-8LHtIm-H9vf/view?usp=sharing)
