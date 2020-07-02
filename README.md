@@ -13,5 +13,4 @@
 
 ## Screens
 
-![Image of logo]
-(https://github.com/Sameerkash/flutterhackathon/blob/master/assets/images/logo.png)
+![alt text](http://url/to/img.png)
