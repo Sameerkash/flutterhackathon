@@ -13,5 +13,8 @@
 
 ## Screens
 
-|[![alt text](https://github.com/Sameerkash/flutterhackathon/blob/master/assets/images/detection.png)] | [![alt shop](https://github.com/Sameerkash/flutterhackathon/blob/master/assets/images/shop.png)] | [![alt job](https://github.com/Sameerkash/flutterhackathon/blob/master/assets/images/jobSwipe.png)]
-
+<p align="center">
+  <img src="https://github.com/Sameerkash/flutterhackathon/blob/master/assets/images/detection.png" width="200" title="Detection">
+  <img src="https://github.com/Sameerkash/flutterhackathon/blob/master/assets/images/shop.png" width="200" title="Shop">
+  <img src="https://github.com/Sameerkash/flutterhackathon/blob/master/assets/images/jobSwipe.png" width="200" title="Job">
+</p>
